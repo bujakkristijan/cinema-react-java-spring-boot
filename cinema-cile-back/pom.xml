@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>cinema-cile-back</artifactId>
+	<artifactId>cinema-cile-back-test</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>food-order-back</name>
 	<description>Demo project for Spring Boot</description>
