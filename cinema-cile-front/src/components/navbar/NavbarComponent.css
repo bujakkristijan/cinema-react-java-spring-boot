@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar{
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
+    height: 75px;
+    background-color: rgb(9, 0, 88);
+    color: white;
+}
+
+.logo{
+    font-size: 30px;
+    margin-left: 30px;
+}
+
+.nav-links{
+    display: flex;
+    justify-content: flex-end; /* sa desne strane da budu */
+    list-style: none;
+    width: 75%;
+    margin-right: 30px;
+}
+
+.home, .signup, .login{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.signup{
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.mobile-menu-icon{
+    display: none;
+}
+
+@media screen and (max-width: 780px){
+     .logo{
+       display: flex; 
+       position: absolute;
+       top: 15px;
+       left: 35px;
+    } 
+
+     .nav-links{
+        display: none;
+       
+    } 
+
+    .nav-links-mobile{
+        position: absolute;
+        display: block;
+        list-style: none;
+        background-color: rgb(9, 0, 88);
+        left: 0;
+        top: 75px;
+        transition: all 1s ease-out;
+        width: 100%;
+    }
+
+    .home, .signup, .login{
+        color: white;
+        text-align: center;
+        padding: 32px;
+        width: 100%;
+
+    }
+    .signup{
+        border: none;
+    }
+
+    .mobile-menu-icon{
+        display: block;
+        position: absolute;
+        font-size: 30px;
+        color: white;
+        background-color: rgb(9, 0, 88);
+        border: none;
+        outline: none;
+        top: 15px;
+        right: 25px;
+    }
+}
