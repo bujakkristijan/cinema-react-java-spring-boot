@@ -24,7 +24,7 @@ const Navbar = () => {
                   className="nav-link"
                   onClick={handleClick}
                 >
-                  Home
+                  Projections
                 </NavLink>
               </li>
               <li className="nav-item">
@@ -35,7 +35,7 @@ const Navbar = () => {
                   className="nav-link"
                   onClick={handleClick}
                 >
-                  About
+                  Myreservations
                 </NavLink>
               </li>
               <li className="nav-item">
@@ -46,7 +46,18 @@ const Navbar = () => {
                   className="nav-link"
                   onClick={handleClick}
                 >
-                  Blog
+                  Movies
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  exact
+                  to="/"
+                
+                  className="nav-link"
+                  onClick={handleClick}
+                >
+                  Users
                 </NavLink>
               </li>
               <li className="nav-item-button">
@@ -66,6 +77,7 @@ const Navbar = () => {
             </div>
           
         </nav>
+        <div className="navbar-bottom-line"></div> 
       </>
     );
 }
