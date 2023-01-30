@@ -1,0 +1,137 @@
+/* body {
+    background-color: #9A616D;
+  } */
+/* 
+  .my-5{
+    background-color: black !important;
+    margin: 0 !important;
+  } 
+
+  #card{
+    background-color: black;
+  } */
+
+  /* .gradient-custom { */
+    /* fallback for old browsers */
+     /* background: #6a11cb; */
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    /* background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1)); */
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /* background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));  */
+    /* }  */
+
+    @import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;300;400;700&display=swap');
+
+body {
+  font-family: 'Jost', sans-serif;
+  background-color: #f0f5ff;
+  transition: 0.5s;
+}
+
+
+
+.login-box {
+  background-color: white;
+  width: 40%;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 50px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, .1);
+  transition: 0.5s;
+  border: 2px solid #353122;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.input, .login{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+   .login-box {
+    width: 100%;
+  } 
+}
+
+@media only screen and (max-width: 1366px) {
+  .login-box {
+    width: 40%;
+  }
+}
+
+.login-box {
+  background-color: #2b2b2b;
+}
+
+.login-box h1 {
+  text-align: center;
+  color: #232c3d;
+  transition: 0.5s;
+  color: white;
+}
+
+
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+input {
+  width: 80%;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 14px;
+  transition: 0.5s;
+  background-color: #424242;
+  color: white;
+}
+
+
+
+
+input:focus {
+  outline: none;
+}
+
+form button {
+  width: 20%;
+  border: none;
+  
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  transition: 0.5s;
+  background-color: #794bc4;
+}
+
+
+
+form button:hover {
+  cursor: pointer;
+  background-color: #875ad1;
+}
+
+
+
+form button:focus {
+  outline: none;
+}
+
+
