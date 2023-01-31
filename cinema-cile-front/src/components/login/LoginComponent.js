@@ -12,11 +12,12 @@ import {
   MDBInput
 }
 from 'mdb-react-ui-kit';
+import { Link } from 'react-router-dom';
 
 
 const LoginComponent = () => {
   return (
-    <div class="login-box">
+    <div className="login-box">
     <h1>Login</h1>
     <form className='login-form'>
       <input className='input' type="text" placeholder="Username" id="login-input">
@@ -24,6 +25,11 @@ const LoginComponent = () => {
       <input className='input' type="password" placeholder="Password" id="login-input">
       </input>
       <button className='login' type="submit" id="login-button">Login</button>
+      <div className='registration-div'>
+        <div className='registration-label'>Don't have an account?&nbsp;</div>
+        <Link className='registration-link' to='/registration'>Register</Link>
+      </div>
+      
     </form>
   </div>
   )

@@ -18,7 +18,7 @@ const Navbar = () => {
             <ul className={click ? "nav-menu active" : "nav-menu"}>
               <li className="nav-item">
                 <NavLink
-                  exact
+                  
                   to="/"
                 
                   className="nav-link"
@@ -29,7 +29,7 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 <NavLink
-                  exact
+                  
                   to="/"
                 
                   className="nav-link"
@@ -40,7 +40,7 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 <NavLink
-                  exact
+                  
                   to="/"
                 
                   className="nav-link"
@@ -51,7 +51,7 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 <NavLink
-                  exact
+                  
                   to="/"
                 
                   className="nav-link"
@@ -62,7 +62,7 @@ const Navbar = () => {
               </li>
               <li className="nav-item-button">
                 <NavLink
-                  exact
+                  
                   to="/login"
                 
                   className="nav-link"

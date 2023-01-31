@@ -24,16 +24,16 @@
 
     @import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;300;400;700&display=swap');
 
-body {
+/* body {
   font-family: 'Jost', sans-serif;
   background-color: #f0f5ff;
   transition: 0.5s;
-}
+} */
 
 
 
 .login-box {
-  background-color: white;
+  background-color: #2b2b2b;
   width: 40%;
   border-radius: 10px;
   margin: auto;
@@ -58,9 +58,12 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-   .login-box {
+   /* .login-box {
     width: 100%;
-  } 
+  }  */
+  .login-box{
+    width: 60%;
+  }
 }
 
 @media only screen and (max-width: 1366px) {
@@ -69,9 +72,22 @@ body {
   }
 }
 
-.login-box {
-  background-color: #2b2b2b;
+@media screen and (max-width: 480px) {
+  .login-box{
+    width: 80%;
+  }
+
+  .login{
+    width: 60%;
+    /* max-height: 20px; */
+    max-height: 15px;
+    line-height: 0;
+    padding-top: 25px;
+    padding-bottom: 25px; /* nzm ni sam zasto bas radi ovako da se smanji dugme za malu rezoluciju, preko inspect cackao pa namestio da bude okej */ 
+  }
 }
+
+
 
 .login-box h1 {
   text-align: center;
@@ -99,6 +115,7 @@ input {
   transition: 0.5s;
   background-color: #424242;
   color: white;
+  border: 2px solid #353122;
 }
 
 
@@ -110,7 +127,7 @@ input:focus {
 
 form button {
   width: 20%;
-  border: none;
+  border: 1px solid #9d9b42;
   
   border-radius: 10px;
   padding: 10px;
@@ -118,14 +135,17 @@ form button {
   font-weight: bold;
   color: white;
   transition: 0.5s;
-  background-color: #794bc4;
+  background-color: #625731;
+
 }
 
 
 
 form button:hover {
   cursor: pointer;
-  background-color: #875ad1;
+  background-color: #ffffff;
+  color: black;
+  transition: 0.5s ease;
 }
 
 
@@ -133,5 +153,26 @@ form button:hover {
 form button:focus {
   outline: none;
 }
+
+.registration-div{
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.registration-label{
+  color: white;
+}
+
+.registration-link{
+  color: #9d9b42;
+}
+
+.registration-link:hover{
+  color:  #ffdd40;
+}
+
+
 
 

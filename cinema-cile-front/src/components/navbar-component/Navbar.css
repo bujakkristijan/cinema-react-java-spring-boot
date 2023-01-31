@@ -1,5 +1,5 @@
 .navbar {
-    background-color: #070038;
+    background-color: #2b2b2b;
     height: 80px;
     display: flex;
     justify-content: center;
@@ -135,7 +135,8 @@
       display: flex;
       flex-direction: column;
       width: 100%;
-      border-top: 1pxsolid #fff;
+      border-top: 2px solid #c8a300;
+      border-bottom: 2px solid #353122;
       position: absolute;
       top: 80px; /* visina nav-containera je 80 pa od gore toliko pixela */
       left: -110%;
@@ -144,7 +145,7 @@
     }
   
     .nav-menu.active {
-      background: #070038;
+      background-color: #2b2b2b;
       left: 0px;
       opacity: 1;
       transition: all 0.5s ease;
@@ -169,10 +170,10 @@
     }
 
      .nav-item-button:hover{
-    background-color: #070038; /* mora ovde isti background color kao sto je pozadina navbara jer nzm sto menja iako se ne definise da treba da uradi tako*/
-    /* background-color: #ffdd40; */
-    color:  #00c784;
-    transition: 0.5s ease;
+      background-color: #2b2b2b; /* mora ovde isti background color kao sto je pozadina navbara jer nzm sto menja iako se ne definise da treba da uradi tako*/
+      /* background-color: #ffdd40; */
+      color:  #00c784;
+      transition: 0.5s ease;
     } 
 
     .nav-item-button:after {

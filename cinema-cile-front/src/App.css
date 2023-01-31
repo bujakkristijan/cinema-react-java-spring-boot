@@ -1,5 +1,5 @@
 .router-components:before{
-  display: block;
+  /* display: block; */
   height: 100vh;
   width: 100vw;
   background-image: url('./images/background.jpg');
