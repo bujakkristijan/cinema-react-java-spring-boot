@@ -30,28 +30,27 @@ public class UserController {
 	UserService userService;
 
 	
-//	@RequestMapping(value = "/registration", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-//	public ResponseEntity<String> createUser(@RequestBody User user) {
-//		//UserDTO userDTO = UserMapper.INSTANCE.entityToDTO(user);
-//		//UserDTO userDTO = new UserDTO();
-//		String responseToClient;
-//		if (userService.validateUser(user).equals("invalid")) {
-//			//userDTO.setUserInvalidInput("yes");
-//			responseToClient = "invalidInput";
-//		} else if (userService.findByUsername(user.getUsername()) != null
-//				|| userService.validateUser(user).equals("not unique")) {
-//			//userDTO.setUserAlreadyExist("yes");
-//			responseToClient = "emailOrUsernameAlreadyExist";
-//		} else {
-//			user.setRole(Role.USER); // po defaultu pri registraciji role se setuje na USER
-//			//user.setPassword(user.getPassword());
-//			userService.save(user);
-//			//userDTO.setUserAdded("yes");
-//			responseToClient = "success";
-//		}
-//		return new ResponseEntity<String>(responseToClient, HttpStatus.OK);
-//
-//	}
+	@RequestMapping(value = "/registration", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<String> createUser(@RequestBody User user) {
+		//UserDTO userDTO = UserMapper.INSTANCE.entityToDTO(user);
+		//UserDTO userDTO = new UserDTO();
+		String responseToClient;
+		if (userService.validateUser(user).equals("invalid")) {
+			//userDTO.setUserInvalidInput("yes");
+			responseToClient = "invalidInput";
+		} else if (userService.findByUsername(user.getUsername()) != null
+				|| userService.validateUser(user).equals("not unique")) {
+			//userDTO.setUserAlreadyExist("yes");
+			responseToClient = "emailOrUsernameAlreadyExist";
+		} else {
+			user.setRole(Role.USER); // po defaultu pri registraciji role se setuje na USER
+			user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+			userService.save(user);
+			responseToClient = "success";
+		}
+		return new ResponseEntity<String>(responseToClient, HttpStatus.OK);
+
+	}
 	
 	
 	

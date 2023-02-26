@@ -1,0 +1,2 @@
+insert into cinemaDB.user (id, email, is_deleted, name_surname, password, role, username) values (1, "cile@something.com", false, "Kristijan Bujak", "123", 0, "a");
+insert into cinemaDB.user (id, email, is_deleted, name_surname, password, role, username) values (2, "pera@something.com", false, "Petar Petrovic", "123", 1, "b");

@@ -102,23 +102,18 @@ public class UserServiceImpl implements UserService {
 	}
 
 
-//	@Override
-//	public String validateUser(User user) {
-//		if (user.getEmail() == null || user.getEmail().trim().isEmpty() || user.getLastName() == null
-//				|| user.getLastName().trim().isEmpty() || user.getFirstName() == null
-//				|| user.getFirstName().trim().isEmpty() || user.getUsername() == null
-//				|| user.getUsername().trim().isEmpty() || user.getPhoneNumber() == null
-//				|| user.getAddress().trim().isEmpty() || user.getAddress() == null
-//				|| user.getPassword().trim().isEmpty() || user.getPassword() == null
-//				|| user.getPhoneNumber().trim().isEmpty() || !user.getEmail().matches("^(.+)@(.+)$")) {
-//			return "invalid";
-//		}
-//		if (!isEmailUnique(user.getEmail())) {
-//			return "not unique";
-//		}
-//		return "valid";
-//	}
-//
+	@Override
+	public String validateUser(User user) {
+		if (user.getEmail() == null || user.getEmail().trim().isEmpty() || !user.getEmail().matches("^(.+)@(.+)$") 
+				|| user.getPassword() == null || user.getPassword().trim().isEmpty() || user.getNameSurname() == null || user.getNameSurname().trim().isEmpty()){
+			return "invalid";
+		}
+		if (!isEmailUnique(user.getEmail())) {
+			return "not unique";
+		}
+		return "valid";
+	}
+
 //	@Override
 //	public String validateUserUpdate(User user) {
 //		if (user.getEmail() == null || user.getEmail().trim().isEmpty() || user.getLastName() == null
@@ -182,15 +177,30 @@ public class UserServiceImpl implements UserService {
 		User user = new User();
 		
 		try {
-			authenticationManager.authenticate(
-					new UsernamePasswordAuthenticationToken(login.getUsername(), login.getPassword()));
+//			authenticationManager.authenticate(
+//					new UsernamePasswordAuthenticationToken(login.getUsername(), login.getPassword()));
 			User userFromDB = findByUsername(login.getUsername());
-			JWTLogin jwtDetails = new JWTLogin();
-			jwtDetails.setRole(userFromDB.getRole().toString());
-			jwtDetails.setUsername(userFromDB.getUsername());
+			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+			
+			if(!(userFromDB.getPassword().equals(login.getPassword()))) {
+				if(encoder.matches(login.getPassword(), userFromDB.getPassword()) == false) {
+					throw new Exception();
+				}
+				else {
+					JWTLogin jwtDetails = new JWTLogin();
+					jwtDetails.setRole(userFromDB.getRole().toString());
+					jwtDetails.setUsername(userFromDB.getUsername());
+					String token = jwtUtil.generateToken(jwtDetails);
+					loginDTO = new LoginDTO(token, userFromDB.getNameSurname(), "no");
+				}
+			}
+			else {
+				JWTLogin jwtDetails = new JWTLogin();
+				jwtDetails.setRole(userFromDB.getRole().toString());
+				jwtDetails.setUsername(userFromDB.getUsername());
 				String token = jwtUtil.generateToken(jwtDetails);
 				loginDTO = new LoginDTO(token, userFromDB.getNameSurname(), "no");
-			
+			}	
 		} catch (Exception e) {
 			loginDTO = new LoginDTO();
 			loginDTO.setMessageInvalidUsernameOrPassword("yes");
