@@ -22,7 +22,7 @@ const Navbar = () => {
                   to="/"
                 
                   className="nav-link"
-                  onClick={handleClick}
+                 
                 >
                   Projections
                 </NavLink>
@@ -33,7 +33,7 @@ const Navbar = () => {
                   to="/"
                 
                   className="nav-link"
-                  onClick={handleClick}
+                  
                 >
                   Myreservations
                 </NavLink>
@@ -44,7 +44,7 @@ const Navbar = () => {
                   to="/"
                 
                   className="nav-link"
-                  onClick={handleClick}
+                  
                 >
                   Movies
                 </NavLink>
@@ -52,10 +52,10 @@ const Navbar = () => {
               <li className="nav-item">
                 <NavLink
                   
-                  to="/"
+                  to="/users"
                 
                   className="nav-link"
-                  onClick={handleClick}
+                  
                 >
                   Users
                 </NavLink>
@@ -66,7 +66,7 @@ const Navbar = () => {
                   to="/login"
                 
                   className="nav-link"
-                  onClick={handleClick}
+                  
                 >
                   Login
                 </NavLink>

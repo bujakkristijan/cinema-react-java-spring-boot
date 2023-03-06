@@ -39,6 +39,7 @@ const LoginComponent = () => {
     if(role === "ADMIN"){
       navigate("/users");
     }
+    
   }
 
   const decodeTokenAndReturnRole = (token) =>{

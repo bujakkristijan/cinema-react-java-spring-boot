@@ -87,6 +87,12 @@
   }
 }
 
+@media screen and (max-width: 912px) {
+  .login-box{
+    width: 80%;
+  }
+}
+
 
 
 .login-box h1 {

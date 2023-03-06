@@ -1,0 +1,42 @@
+.theadth{
+    font-size: large;
+    color: whitesmoke
+}
+
+.td-content{
+    font-size: large;
+    color: white;
+    padding-top: 15px !important; /* moze i na bolji nacin verovatno da se centrira po vertikali */
+    /* text-align: center;  po horizontali ali ne treba */
+    
+    
+}
+
+.table{
+    margin-top: 20px;
+    border-color: #766000 !important;
+    
+}
+
+.container{
+    margin-top: 50px;
+    /* border: 2px solid  #766000;
+    border-radius: 30px; */
+}
+
+.btnDelete{
+    color: white;
+    background-color: #766000;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px; 
+    border: 2px solid rgba(208, 208, 208, 0.79);
+    border-radius: 5px;
+}
+
+.btnDelete:hover{
+    color: #766000;
+    background-color: white;
+    transition: 0.5s;
+}
