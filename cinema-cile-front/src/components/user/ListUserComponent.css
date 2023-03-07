@@ -5,12 +5,19 @@
 
 .td-content{
     font-size: large;
-    color: white;
+    color: white !important; /* kad je hover misem preko kolone u redu tabele budu bele sve kolone, a kad je bez important budu sivi, na hover kad sam stavio bude samo ta kolona bela ostale ne, nema smisla al ovako radi jedino */
+    /* color: white;  */
     padding-top: 15px !important; /* moze i na bolji nacin verovatno da se centrira po vertikali */
-    /* text-align: center;  po horizontali ali ne treba */
-    
-    
+    cursor: pointer;
+    /* text-align: center;  po horizontali ali ne treba */ 
 }
+
+/* .td-content{
+    cursor: pointer;
+    /* background-color: white; */
+    /* color: white !important; */
+
+
 
 .table{
     margin-top: 20px;

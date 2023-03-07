@@ -3,6 +3,7 @@ import './LoginComponent.css';
 import LoginService from '../../services/LoginService';
 import { Link, useNavigate } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
+import { jwtInterceptor } from '../interceptor/interceptor';
 
 
 const LoginComponent = () => {
@@ -23,9 +24,10 @@ const LoginComponent = () => {
       let responseFromServer = response.data.messageInvalidUsernameOrPassword.toString();
       if(responseFromServer == "no"){
         localStorage.token = response.data.token;
+        jwtInterceptor();
         alert("Successful login! Token: " + localStorage.token);
         localStorage.role = decodeTokenAndReturnRole(response.data.token);
-        navigateDepentingOnRole(localStorage.role);
+        navigateDependingOnRole(localStorage.role);
         
       }
       else if(responseFromServer == "yes"){
@@ -35,7 +37,7 @@ const LoginComponent = () => {
 
   }
 
-  const navigateDepentingOnRole = (role) =>{
+  const navigateDependingOnRole = (role) =>{
     if(role === "ADMIN"){
       navigate("/users");
     }

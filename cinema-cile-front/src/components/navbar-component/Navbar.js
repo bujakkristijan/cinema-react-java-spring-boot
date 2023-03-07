@@ -11,7 +11,7 @@ const Navbar = () => {
         <nav className="navbar">
           
             <NavLink exact to="/" className="nav-logo">
-              Cinema cile
+              <img className="logo" src={require('../../images/cinema-logo.png')} alt=''/>
               
             </NavLink>
   
@@ -22,7 +22,7 @@ const Navbar = () => {
                   to="/"
                 
                   className="nav-link"
-                 
+                  onClick={handleClick}
                 >
                   Projections
                 </NavLink>
@@ -33,7 +33,7 @@ const Navbar = () => {
                   to="/"
                 
                   className="nav-link"
-                  
+                  onClick={handleClick}
                 >
                   Myreservations
                 </NavLink>
@@ -44,7 +44,7 @@ const Navbar = () => {
                   to="/"
                 
                   className="nav-link"
-                  
+                  onClick={handleClick}
                 >
                   Movies
                 </NavLink>
@@ -55,7 +55,7 @@ const Navbar = () => {
                   to="/users"
                 
                   className="nav-link"
-                  
+                  onClick={handleClick}
                 >
                   Users
                 </NavLink>
@@ -66,7 +66,7 @@ const Navbar = () => {
                   to="/login"
                 
                   className="nav-link"
-                  
+                  onClick={handleClick}
                 >
                   Login
                 </NavLink>

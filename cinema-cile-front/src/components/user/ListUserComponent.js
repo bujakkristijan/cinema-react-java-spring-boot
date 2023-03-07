@@ -43,7 +43,7 @@ const ListUserComponent = () => {
             {
               users.map(
                 user =>
-                <tr key={user.id}>
+                <tr className='table-content-row' key={user.id}>
                   <td className='td-content'>{user.id}</td>
                   <td className='td-content'>{user.nameSurname}</td>
                   <td className='td-content'>{user.username}</td>

@@ -8,11 +8,6 @@
     position: sticky;
     top: 0;
     z-index: 20; 
-
-    
-    
-   
-    
   }
   
   /* .nav-container {
@@ -20,22 +15,19 @@
   }
    */
   .nav-logo {
-    color: #f5b921;
-    /* align-items: center;  */
-    margin-left: 20px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 2rem;
-    flex-grow: 1;
-    /* text-align: center; */
+    
+    flex-grow: 1; /* bez ovog sve bude na sredini, kao justify content da ima */
+    /* padding-bottom: 10px;   */
+  } 
+   
 
-     padding-bottom: 10px;  /* nzm kako najbolje da centriram logo, proveriti ovo, ne bi trebalo ovako !!!!!!!!!!!! */
+
+  .logo{
+    width: 140px;
+    height: 70px;
+    padding-bottom: 7px; 
     
-    
-    /* margin-right: 1rem; */
-  
   }
-  
   .nav-menu {
     display: flex;
     list-style: none;
@@ -197,10 +189,12 @@
 
   
     .nav-icon {
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
+      /* display: block; */
+      /* position: absolute; */
+      display: flex;
+      margin-bottom: 30px;
+      /* top: 0;
+      right: 0; */
       transform: translate(-100%, 60%);
       font-size: 1.8rem;
       cursor: pointer;
