@@ -41,7 +41,7 @@ const Navbar = () => {
               <li className="nav-item">
                 <NavLink
                   
-                  to="/"
+                  to="/movies"
                 
                   className="nav-link"
                   onClick={handleClick}

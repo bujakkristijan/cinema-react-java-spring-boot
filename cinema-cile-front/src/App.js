@@ -5,6 +5,7 @@ import LoginComponent from "./components/login/LoginComponent";
 import Navbar from "./components/navbar-component/Navbar";
 import RegistrationComponent from "./components/registration/RegistrationComponent";
 import ListUserComponent from "./components/user/ListUserComponent";
+import ListMovieComponent from "./components/movie/ListMovieComponent";
 function App() {
   return (
     <Router>
@@ -15,6 +16,7 @@ function App() {
         <Route path="/login" element={<LoginComponent/>}></Route>
         <Route path="/registration" element={<RegistrationComponent/>}></Route>
         <Route path="/users" element={<ListUserComponent/>}></Route>
+        <Route path="/movies" element={<ListMovieComponent/>}></Route>
       </Routes>
       </div>
      

@@ -40,6 +40,7 @@ public class Movie {
 	@Lob
 	//@Column(columnDefinition = "MEDIUMBLOB")
 	private String image;
+	private String imageName;
 	
 	public Movie() {
 		
@@ -59,6 +60,14 @@ public class Movie {
 		this.duration = duration;
 		this.projections = projections;
 		this.image = image;
+	}
+
+	public String getImageName() {
+		return imageName;
+	}
+
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
 	}
 
 	public Long getId() {

@@ -120,7 +120,7 @@ input {
   font-size: 14px;
   transition: 0.5s;
   background-color: #424242;
-  color: white;
+  color: white; 
   border: 2px solid #353122;
 }
 

@@ -1,0 +1,16 @@
+.movie-form{
+    display: block !important; /* bilo je po defaultu display:flex, u inspect element sam video to, nzm sto tacno */
+    margin-top: 0 !important; /* margin-top je 30 bilo po defaultu */
+}
+
+/* ako je samo form, primeni na sve form, iz logina i registracije na primer, ne znam sto i na njih kad nije importovan taj css fajl u komponenti*/
+
+.form-control{
+    background-color: #424242 !important;
+    border: 2px solid #353122 !important;
+    color: white !important;
+}
+
+.form-label{
+    color: white !important;
+}
