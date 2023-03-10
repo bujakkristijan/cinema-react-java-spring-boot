@@ -19,4 +19,50 @@
     background-color: white;
 }
 
+.createMovieBtn{
+    color: white;
+    background-color: #766000;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px; 
+    border: 2px solid rgba(208, 208, 208, 0.79);
+    border-radius: 5px;
+}
+
+.movie-item-container{
+    background-color: aqua;
+    
+    
+}
+
+.movie-info-container{
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.movie-description-container{
+    background-color: rebeccapurple;
+    width: 30%;
+}
+
+.movie-action-container{
+    background-color: red;
+    width: 20%;
+}
+
+.movie-image{
+    height: 285px;
+    width: 190px;
+    /* padding: 20px; */
+    margin: 20px;
+}
+
+.movie-item-container{
+    display: flex;
+    
+}
+
 

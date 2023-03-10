@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.cinemacileback.dto.MovieDTO;
 import com.example.cinemacileback.model.Movie;
 import com.example.cinemacileback.repository.MovieRepository;
 import com.example.cinemacileback.service.MovieService;
 
-
+@Service
 public class MovieServiceImpl implements MovieService{
 	
 	@Autowired

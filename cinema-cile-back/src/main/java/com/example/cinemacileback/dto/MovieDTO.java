@@ -14,6 +14,7 @@ public class MovieDTO {
 	private int year;
 	private int duration;
 	private String imageName;
+	private String image;
 	
 	public MovieDTO() {
 		
@@ -30,6 +31,15 @@ public class MovieDTO {
 		this.year = movie.getYear();
 		this.duration = movie.getDuration();
 		this.imageName = movie.getImageName();
+		this.image= movie.getImage();
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	public String getImageName() {

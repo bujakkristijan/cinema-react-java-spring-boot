@@ -17,6 +17,7 @@ const CreateMovieModalComponent = (props) => {
     <div>
         <div className='container-add-movie'>
         <form className='movie-form'>
+            <div className='box-1'>
                   <div className='form-group mb-2'>
                     <label className='form-label'>Name: </label>
                     <input  
@@ -43,6 +44,36 @@ const CreateMovieModalComponent = (props) => {
                     </input>
                   </div>
 
+                  <div className='form-group mb-2'>
+                    <label className='form-label'>Actors: </label>
+                    <input  
+                        type="text"
+                        placeholder="Insert actors" 
+                        name = "actors" 
+                        className="form-control" 
+                        value={movie.actors}
+                        onChange = {(e) => movie.setActors(e.target.value)} 
+                        >   
+                    </input>
+                  </div>
+
+                  <div className='form-group mb-2'>
+                    <label className='form-label'>Description: </label>
+                    <textarea
+                        type="text"
+                        rows="5"
+                        placeholder="Insert description" 
+                        name = "description" 
+                        className="form-control" 
+                        value={movie.description}
+                        onChange = {(e) => movie.setDescription(e.target.value)} 
+                        >   
+                    </textarea>
+                  </div>
+            </div>
+            <div className='box-2'>
+
+           
                   <div className='form-group mb-2'>
                     <label className='form-label'>Distributor: </label>
                     <input  
@@ -105,6 +136,7 @@ const CreateMovieModalComponent = (props) => {
                         >        
                     </input>
                   </div>
+              </div>
             </form>
         </div>
     </div>
