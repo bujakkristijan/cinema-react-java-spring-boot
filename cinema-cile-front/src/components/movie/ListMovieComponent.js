@@ -4,6 +4,7 @@ import CreateMovieModalComponent from './CreateMovieModalComponent';
 import { Modal, Button } from 'react-bootstrap';
 import './ListMovieComponent.css';
 import './CreateMovieModalComponent.css';
+import { Link } from 'react-router-dom';
 
 const ListMovieComponent = () => {
 
@@ -94,25 +95,29 @@ const ListMovieComponent = () => {
             {
                 movies.map((movie) =>{
                     return(
+                    <div className='layer-container'>
                         <div className='movie-item-container' key={movie.id}>
                             <div className='movie-image-container'>
                                 <img className='movie-image' src={"data:image/png;base64," + movie.image} alt=''></img> 
                             </div>
                             <div className='movie-info-container'>
-                                <h2>Name: {movie.name}</h2>
+                                <h3 className='movie-name'>{movie.name}</h3>
                                 <label>Actors: {movie.actors}</label>
                                 <label>Distributor: {movie.distributor}</label>
                                 <label>Duration: {movie.duration} mins</label>
                                 <label>Year: {movie.year}</label>
                                 <label>Director: {movie.director}</label>
+                                <Link to='/' className="movieDetailsBtn">Read more</Link>
                             </div>
                             <div className='movie-description-container'>
-                                <label>Description: {movie.description}</label>
+                                <h4>Description</h4>
+                                <label>{movie.description}</label>
                             </div>
                             <div className='movie-action-container'>
-                                <div>Action</div>
+                                <h4>Action</h4>
                             </div>
                         </div>
+                    </div>
                     )
                 })
             }

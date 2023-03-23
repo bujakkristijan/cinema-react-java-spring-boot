@@ -1,92 +1,122 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 .navbar{
-    display: flex; 
-    justify-content: space-around;
+    display: flex;
+    padding: 2% 6%;
+    /* margin: 2% 6%; */
+    justify-content: space-between;
     align-items: center;
-    height: 75px;
-    background-color: rgb(9, 0, 88);
-    color: white;
+    height: 100px;
+    background-color: #383838; 
+    padding-left: 5% !important;
+    padding-right: 5% !important;
 }
 
-.logo{
-    font-size: 30px;
-    margin-left: 30px;
+.login-btn{
+    color: white;
+    padding: 15px 30px;
+    border: 2px solid rgb(199, 199, 0);
+    border-radius: 10px;
+    background: transparent;
+    text-decoration: none;
+}
+
+.login-btn:hover{
+    color: black;
+    background-color: white;
+    border: 2px solid white;
+    transition: 1s;
+}
+
+.nav-ul{
+    margin-bottom: 0; /* ne znam zasto nije po defaultu*/
+}
+
+.nav-bottom-line{
+    height: 1px;
+    background-color: rgb(199, 199, 0);
+}
+
+.img-logo{
+    width: 140px;
+    height: 70px;
 }
 
 .nav-links{
+    flex: 1;
+    text-align: right; /* ul centrira desno*/ 
+    
+    
+}
+/* ul{
     display: flex;
-    justify-content: flex-end; /* sa desne strane da budu */
+} */
+
+.nav-list-item{
     list-style: none;
-    width: 75%;
-    margin-right: 30px;
+    display: inline-block; 
+    padding: 8px 25px;
+    position: relative; 
 }
 
-.home, .signup, .login{
+.nav-link{
+    color: white !important; /* nzm zasto mora important */
     text-decoration: none;
-    color: white;
-    font-size: 20px;
-    padding: 10px 20px;
-    cursor: pointer;
+    font-size: 18px !important; /* nzm zasto mora important */
+    
 }
 
-.signup{
-    border: 1px solid white;
-    border-radius: 5px;
+.nav-link::after{
+    content: "";
+    height: 2px;
+    width: 0%;
+    background: rgb(199, 199, 0);
+    display: block;
+    margin: auto;  /* sa margin auto se stavi da tranzicija ide od sredine pa prema krajevima, bez ovoga bi islo od pocetka (levo) do kraja (desno) */
+    transition: 0.5s;
 }
 
-.mobile-menu-icon{
-    display: none;
+.nav-link:hover::after{
+    width: 100%;
 }
 
-@media screen and (max-width: 780px){
-     .logo{
-       display: flex; 
-       position: absolute;
-       top: 15px;
-       left: 35px;
-    } 
 
-     .nav-links{
-        display: none;
-       
-    } 
+#menu, #x-menu{
+    display: none; 
+}
 
-    .nav-links-mobile{
-        position: absolute;
+@media(max-width: 700px){
+    .nav-list-item{
         display: block;
-        list-style: none;
-        background-color: rgb(9, 0, 88);
-        left: 0;
-        top: 75px;
-        transition: all 1s ease-out;
-        width: 100%;
     }
-
-    .home, .signup, .login{
-        color: white;
-        text-align: center;
-        padding: 32px;
-        width: 100%;
-
-    }
-    .signup{
-        border: none;
-    }
-
-    .mobile-menu-icon{
-        display: block;
+    .nav-links{
         position: absolute;
-        font-size: 30px;
-        color: white;
-        background-color: rgb(9, 0, 88);
-        border: none;
-        outline: none;
-        top: 15px;
-        right: 25px;
+        background-color: #383838;
+        height: 100vh; /* da zauzme view height, da je 100% bilo bi 100% od parent elementa*/
+        width: 200px;
+        top: 0;
+        right: -200px; /* da se ne vidi, toliki mu je i width, pa ga skloni */
+        text-align: left; /* moze i ovako, pozicionira content iz nav-list-itema u levo, a moze i na nav-list-item da se stavi, uradice isto*/
+        z-index: 2; /* da prekrije ostale komponente kada treba da se pojavi*/
+        transition: 1s;
+        border-left: 2px solid #625731;; ;
     }
+    #menu, #x-menu{
+        display: block; /* da se pojave, jer su none za velike ekrane*/
+        color: white;
+        margin: 10px;
+        font-size: 22px;
+        cursor: pointer;
+
+    }
+    #li-loginBtn{
+        margin-top: 15px !important;
+        
+    }
+    .login-btn{
+        border: 1px solid rgb(199, 199, 0) !important;
+    }
+    .nav-ul{
+        padding: 30px;
+    }
+    
+    
 }
