@@ -10,6 +10,21 @@
     border: 3px solid #353122 !important;
 }
 
+#closeModalBtn{
+    padding: 5px 15px;
+    background-color: rgb(189, 0, 0);
+    border: 1px solid rgb(189, 0, 0);
+    color: white;
+    border-radius: 5px;
+}
+#submitModalBtn{
+    padding: 5px 15px;
+    background-color: #766000;
+    border: 1px solid #766000;
+    color: white;
+    border-radius: 5px;
+}
+
 .modal-title{
     color: white;
 }
@@ -30,39 +45,28 @@
     border-radius: 5px;
 }
 
-.movie-item-container{
-    /* background-color: aqua; */
-    
-    
+.movie-info-container{
+    display: flex;
+    width: 70%;
+    margin-top: 10px;
+    /* justify-content: space-between; */
 }
 
-.movie-info-container{
-    /* background-color: aquamarine; */
+.container-box-1{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.container-box-2{
     display: flex;
     flex-direction: column;
     width: 40%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.movie-description-container{
-    /* background-color: rebeccapurple; */
-    width: 30%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.movie-action-container{
-    /* background-color: red; */
-    width: 20%;
-    padding-top: 20px;
-    padding-bottom: 20px;
 }
 
 .movie-image{
-    height: 285px;
-    width: 190px;
-    /* padding: 20px; */
+    height: 148px;
+    width: 99px; 
     margin: 20px; 
 }
 
@@ -72,9 +76,7 @@
 
 .movie-item-container{
     display: flex;
-    border: 1px solid #766000;
-   
-    
+    border: 1px solid #766000;  
 }
 
 h3, label, div{
@@ -82,7 +84,7 @@ h3, label, div{
 }
 
 label{
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 5px;
 }
 
@@ -92,18 +94,49 @@ label{
     background-color: rgba(56, 56, 56, 0.4); /* dovoljno je ovo samo da se zamraci pozadina a da ne primeni na text */
 }
 
-.movieDetailsBtn{
-    color: white;
-    padding: 10px 25px;
-    text-decoration: none;
-    border: 1px solid  #766000;
-    width: 80%;
+
+
+
+
+
+.h1-movies{
     text-align: center;
-    margin: auto;
+    margin-top: 5px;
 }
 
-.movie-name{
-    /* text-align: center; */
+.movie-action-container{
+    width: 20%;
+    position: relative;
+    text-align: center;
+    
 }
+
+.actionLabel{
+    font-size: larger;
+}
+
+.action-fa-container{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+}
+#fa-pencil{
+    font-size: xx-large;
+    color: #c4a20b;
+}
+#fa-pencil:hover{
+    cursor: pointer;
+}
+#fa-trash{
+    font-size: xx-large;
+    margin-right: 10%; 
+    color: rgb(189, 0, 0);
+}
+#fa-trash:hover{
+    cursor: pointer;
+}
+
+
 
 

@@ -102,6 +102,20 @@
   color: white;
 }
 
+.login-label-container{
+  text-align: center;
+}
+
+#faLogin{
+  font-size: xx-large;
+  color:#9d9b42;
+}
+
+.loginLabel{
+  font-size: xx-large;
+  margin-left: 2%;
+}
+
 
 
 form {

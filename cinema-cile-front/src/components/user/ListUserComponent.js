@@ -27,7 +27,7 @@ const ListUserComponent = () => {
 
   return (
     <div className='container'>
-      <h1>Users</h1>
+      <h1 className='h1-users'>Users</h1>
         <table className='table table-hover'>
           
           <thead>

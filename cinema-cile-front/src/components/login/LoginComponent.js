@@ -56,31 +56,33 @@ const LoginComponent = () => {
 
   return (
     <div className="login-box">
-    <h1>Login</h1>
-    <form className='login-form'>
-      <input 
-        className='input' 
-        type="text" 
-        placeholder="Username" 
-        value={username}
-        onChange = {(e) => setUsername(e.target.value)}
-        >
-      </input>
-      <input 
-        className='input' 
-        type="password" 
-        placeholder="Password" 
-        value={password}
-        onChange = {(e) => setPassword(e.target.value)}
-        >
-      </input>
-      <button onClick = {submitLogin} className='login' type="submit" id="login-button">Login</button>
-      <div className='registration-div'>
-        <div className='registration-label'>Don't have an account?&nbsp;</div>
-        <Link className='registration-link' to='/registration'>Register</Link>
+      <div className='login-label-container'>
+        <i id="faLogin" class="fa fa-sign-in" aria-hidden="true"></i>
+        <label className='loginLabel'>Sign in</label>
       </div>
-      
-    </form>
+      <form className='login-form'>
+        <input 
+          className='input' 
+          type="text" 
+          placeholder="Username" 
+          value={username}
+          onChange = {(e) => setUsername(e.target.value)}
+          >
+        </input>
+        <input 
+          className='input' 
+          type="password" 
+          placeholder="Password" 
+          value={password}
+          onChange = {(e) => setPassword(e.target.value)}
+          >
+        </input>
+        <button onClick = {submitLogin} className='login' type="submit" id="login-button">Login</button>
+        <div className='registration-div'>
+          <div className='registration-label'>Don't have an account?&nbsp;</div>
+          <Link className='registration-link' to='/registration'>Register</Link>
+        </div>
+      </form>
   </div>
   )
 }

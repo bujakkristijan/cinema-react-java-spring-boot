@@ -30,7 +30,10 @@ const submitRegistration = (e) =>{
 
   return (
     <div className='registration-box'>
-        <h1>Registration</h1>
+        <div className='registration-label-container'>
+          <i id="faRegistration" class="fa fa-user-plus" aria-hidden="true"></i>
+          <label className='registrationLabel'>Registration</label>
+        </div>
         <form className='registration-form'>
             <input
               className='input'

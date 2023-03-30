@@ -71,9 +71,7 @@ const CreateMovieModalComponent = (props) => {
                     </textarea>
                   </div>
             </div>
-            <div className='box-2'>
-
-           
+            <div className='box-2'> 
                   <div className='form-group mb-2'>
                     <label className='form-label'>Distributor: </label>
                     <input  

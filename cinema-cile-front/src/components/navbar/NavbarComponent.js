@@ -40,6 +40,9 @@ const NavbarComponent = () => {
             <li className='nav-list-item'>
                 <Link className='nav-link'>My profile</Link>
             </li>
+            <li className='nav-list-item'>
+                <Link to='/users' className='nav-link'>Users</Link>
+            </li>
             <li className='nav-list-item' id='li-loginBtn'>
                 <Link to='/login' className='login-btn'>Login</Link>
             </li>

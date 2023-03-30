@@ -1,9 +1,10 @@
 .movie-form{
     padding: 0 !important;
     
-    display: flex !important; /* bilo je po defaultu display:flex, u inspect element sam video to, nzm sto tacno */
+    display: flex !important;
     margin-top: 0 !important; /* margin-top je 30 bilo po defaultu */
-    flex-direction: row;
+    flex-direction: row !important;
+    flex-wrap: nowrap; /* po defaultu je wrap, za velike ekrane ce biti nowrap a za male wrap */
 }
 
 /* ako je samo form, primeni na sve form, iz logina i registracije na primer, ne znam sto i na njih kad nije importovan taj css fajl u komponenti*/
@@ -26,3 +27,11 @@
     width: 40%;
 } */
 
+@media(max-width: 600px){
+    .movie-form{
+        flex-wrap: wrap;
+    }
+    .box-1{
+        width: 100%; /* da zauzme 100% jer ostane na 55% */ 
+    }
+}

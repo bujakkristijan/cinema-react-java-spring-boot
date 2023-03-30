@@ -83,14 +83,13 @@ const ListMovieComponent = () => {
     }
     
 
-
+// className='container', vec po defaultu ima margine auto i width nije 100% kao sto bi trebalo
   return (
     <>
     
     <div className='container'>
-        <h1>Movies</h1>
         <button className='createMovieBtn' onClick={handleShowCreateMovieModal}>Create new movie</button>
-        
+        <h1 className='h1-movies'>Movies</h1>
         <div className='movie-main-container'>
             {
                 movies.map((movie) =>{
@@ -101,20 +100,24 @@ const ListMovieComponent = () => {
                                 <img className='movie-image' src={"data:image/png;base64," + movie.image} alt=''></img> 
                             </div>
                             <div className='movie-info-container'>
-                                <h3 className='movie-name'>{movie.name}</h3>
-                                <label>Actors: {movie.actors}</label>
-                                <label>Distributor: {movie.distributor}</label>
-                                <label>Duration: {movie.duration} mins</label>
-                                <label>Year: {movie.year}</label>
-                                <label>Director: {movie.director}</label>
-                                <Link to='/' className="movieDetailsBtn">Read more</Link>
-                            </div>
-                            <div className='movie-description-container'>
-                                <h4>Description</h4>
-                                <label>{movie.description}</label>
+                                <div className='container-box-1'>
+                                    <label>Name: {movie.name}</label>
+                                    <label>Actors: {movie.actors}</label>
+                                    <label>Distributor: {movie.distributor}</label>
+                                    <label>Duration: {movie.duration} mins</label>
+                                </div>
+                                <div className='container-box-2'>
+                                    <label>Year: {movie.year}</label>
+                                    <label>Director: {movie.director}</label>
+                                    <label>Description: {movie.description}</label>
+                                </div>
                             </div>
                             <div className='movie-action-container'>
-                                <h4>Action</h4>
+                                <label className='actionLabel'>Action</label>
+                                <div className='action-fa-container'>
+                                    <i id="fa-trash" class="fa fa-trash" aria-hidden="true"></i>
+                                    <i id="fa-pencil" class="fa fa-pencil" aria-hidden="true"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -134,8 +137,8 @@ const ListMovieComponent = () => {
     </Modal.Body>
 
     <Modal.Footer>
-        <Button variant="secondary" onClick={handleCloseCreateMovieModal}>Close</Button>
-        <Button variant="primary" onClick={handleSubmit}>Submit</Button>
+        <button id="closeModalBtn" onClick={handleCloseCreateMovieModal}>Close</button>
+        <button id="submitModalBtn" onClick={handleSubmit}>Submit</button>
     </Modal.Footer>
     </Modal>
     </>

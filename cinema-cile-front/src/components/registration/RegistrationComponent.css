@@ -22,10 +22,20 @@
      margin: auto; 
 }
 
-h1{
+.registration-label-container{
     text-align: center;
-    color: white;
 }
+
+#faRegistration{
+    font-size: xx-large;
+    color:#9d9b42;
+}
+
+.registrationLabel{
+    font-size: xx-large;
+    margin-left: 2%;
+}
+
 
 @media(max-width: 700px){
     .registration-box{
@@ -34,4 +44,10 @@ h1{
     .registrationBtn{
         width: 60%;
     }
+    /* .registrationLabel{
+        font-size: x-large;
+    }
+    #faRegistration{
+        font-size: x-large;
+    } */
 }
