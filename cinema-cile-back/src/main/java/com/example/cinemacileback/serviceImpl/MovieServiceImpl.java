@@ -54,4 +54,23 @@ public class MovieServiceImpl implements MovieService{
 		return "valid";
 	}
 
+	
+	@Override
+	public String editMovie(Movie movie) {
+		Movie m = movieRepository.findById(movie.getId()).get();
+		if (isValidInput(movie).equals("invalid")) {
+			return "invalid";
+		}
+		m.setActors(movie.getActors());
+		m.setDescription(movie.getDescription());
+		m.setName(movie.getName());
+		m.setDirector(movie.getDirector());
+		m.setDistributor(movie.getDistributor());
+		m.setDuration(movie.getDuration());
+		m.setYear(movie.getYear());
+		m.setGenre(movie.getGenre());
+		
+		movieRepository.save(m);
+		return "success";
+	}
 }

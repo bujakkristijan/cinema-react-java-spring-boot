@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -57,6 +58,12 @@ public class MovieController {
 			responseToClient = "invalid";
 			return new ResponseEntity<String>(responseToClient, HttpStatus.OK);
 		}
+	}
+	
+	@RequestMapping(value = "/updateMovie", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<String> editMeal(@RequestBody Movie movie){
+		String response = movieService.editMovie(movie);
+		return new ResponseEntity<String>(response, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/getAllMovies", method = RequestMethod.GET)

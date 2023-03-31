@@ -92,6 +92,7 @@ label{
     width: 100%;
     height: 100%;
     background-color: rgba(56, 56, 56, 0.4); /* dovoljno je ovo samo da se zamraci pozadina a da ne primeni na text */
+    margin-bottom: 1%;
 }
 
 
@@ -135,6 +136,12 @@ label{
 }
 #fa-trash:hover{
     cursor: pointer;
+}
+
+
+.descriptionLabel{
+    overflow: hidden !important; /* overflow: auto -> samo gde je potrebno stavlja skrol, da je :scroll bilo bi na sve, i kad ne probijaju element... */
+    max-height: 70px; /* kada probije da se ne poveca ceo div, da izgleda lepse i svi div elementi da budu jednake velicine*/
 }
 
 

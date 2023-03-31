@@ -4,6 +4,7 @@ import CreateMovieModalComponent from './CreateMovieModalComponent';
 import { Modal, Button } from 'react-bootstrap';
 import './ListMovieComponent.css';
 import './CreateMovieModalComponent.css';
+import EditMovieModalComponent from './EditMovieModalComponent';
 import { Link } from 'react-router-dom';
 
 const ListMovieComponent = () => {
@@ -21,7 +22,6 @@ const ListMovieComponent = () => {
     const [genre, setGenre] = useState('Sci-fi');
     const [description, setDescription] = useState('');
     
-
     const [selectedFile, setSelectedFile] = useState(undefined);
 
     const movie = {id, name, description, director, genre, actors, distributor, year, duration, setDescription, setName, setGenre, setDirector, setActors, setDistributor, setYear, setDuration }
@@ -32,12 +32,12 @@ const ListMovieComponent = () => {
       getAllMovies();
     }, [])
     
-
-
     const [showModal, setShowModal] = useState(false);
+    const [showEditModal, setShowEditModal] = useState(false);
 
     const handleShowCreateMovieModal = () =>{
         setShowModal(true);
+        // setId(null);
     }
 
     const handleCloseCreateMovieModal = () =>{
@@ -47,13 +47,51 @@ const ListMovieComponent = () => {
         setDistributor('');
         setName('');
         setDuration(1);
-        setActors('');
         setDescription('');
         setYear(1);
     }
 
-    const handleSubmit = () =>{
+    const handleShowEditMovieModal = (movie) =>{
+        setShowEditModal(true);
+        setId(movie.id);
+        setActors(movie.actors);
+        setDirector(movie.director);
+        setDistributor(movie.distributor);
+        setName(movie.name);
+        setDuration(movie.duration);
+        setDescription(movie.description);
+        setYear(movie.year);
+        setGenre(movie.genre);
+    }
 
+    const handleCloseEditMovieModal = () =>{
+        setShowEditModal(false);
+        setId(null);
+        setActors('');
+        setDirector('');
+        setDistributor('');
+        setName('');
+        setDuration(1);
+        setDescription('');
+        setYear(1);
+    
+    }
+
+    const handleSubmitEdit = () =>{
+        MovieService.updateMovie(movie).then((response) =>{
+            let responseFromServer = response.data.toString();
+            if(responseFromServer == "success"){
+                alert("Uspesno izmenjen");
+                handleCloseEditMovieModal();
+                getAllMovies();
+            }
+            else if(responseFromServer == "invalid"){
+                alert("Invalid input");
+            }
+        })
+    }
+
+    const handleSubmit = () =>{
         if(selectedFile != null && selectedFile!=undefined) {
             formData.append('image', selectedFile);
             formData.append('movie', JSON.stringify(movie));
@@ -69,17 +107,12 @@ const ListMovieComponent = () => {
                 handleCloseCreateMovieModal();
             }
         })
-
     }
 
     const getAllMovies = () =>{
         MovieService.getAllMovies().then((response) =>{
             setMovies(response.data);
-            console.log(movies);
-            console.log("provera ")
-            alert(JSON.stringify(movies));
         });
-        console.log("check kad se izvrsi")
     }
     
 
@@ -101,6 +134,7 @@ const ListMovieComponent = () => {
                             </div>
                             <div className='movie-info-container'>
                                 <div className='container-box-1'>
+                                    <label>ID: {movie.id}</label>
                                     <label>Name: {movie.name}</label>
                                     <label>Actors: {movie.actors}</label>
                                     <label>Distributor: {movie.distributor}</label>
@@ -109,14 +143,15 @@ const ListMovieComponent = () => {
                                 <div className='container-box-2'>
                                     <label>Year: {movie.year}</label>
                                     <label>Director: {movie.director}</label>
-                                    <label>Description: {movie.description}</label>
+                                    <label>Genre: {movie.genre}</label>
+                                    <label className='descriptionLabel'>Description: {movie.description}</label>
                                 </div>
                             </div>
                             <div className='movie-action-container'>
                                 <label className='actionLabel'>Action</label>
                                 <div className='action-fa-container'>
                                     <i id="fa-trash" class="fa fa-trash" aria-hidden="true"></i>
-                                    <i id="fa-pencil" class="fa fa-pencil" aria-hidden="true"></i>
+                                    <i id="fa-pencil" class="fa fa-pencil" onClick={() => handleShowEditMovieModal(movie)} aria-hidden="true"></i>
                                 </div>
                             </div>
                         </div>
@@ -127,7 +162,7 @@ const ListMovieComponent = () => {
         </div>
         
     </div>
-
+    {/* CREATE MOVIE MODAL */}
     <Modal size='lg' className='modal' show={showModal} onHide={handleCloseCreateMovieModal}>
     <Modal.Header closeButton>
         <Modal.Title className='modal-title'>Create new movie</Modal.Title>
@@ -141,6 +176,21 @@ const ListMovieComponent = () => {
         <button id="submitModalBtn" onClick={handleSubmit}>Submit</button>
     </Modal.Footer>
     </Modal>
+
+    {/* EDIT MOVIE MODAL */}
+    <Modal size='lg' className='modal' show={showEditModal} onHide={handleCloseEditMovieModal}>
+    <Modal.Header closeButton>
+        <Modal.Title className='modal-title'>Edit movie</Modal.Title>
+    </Modal.Header>
+    <Modal.Body>
+        <EditMovieModalComponent movie={movie} genres={genres}/>
+    </Modal.Body>
+
+    <Modal.Footer>
+        <button id="closeModalBtn" onClick={handleCloseEditMovieModal}>Close</button>
+        <button id="submitModalBtn" onClick={handleSubmitEdit}>Submit</button>
+    </Modal.Footer>
+    </Modal> 
     </>
   )
 }

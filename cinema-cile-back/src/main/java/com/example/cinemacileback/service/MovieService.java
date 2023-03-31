@@ -13,9 +13,10 @@ public interface MovieService {
 	String isValidInput(Movie movie);
 	List<MovieDTO> findAll();
 	Movie save(Movie movie);
+	String editMovie(Movie movie);
 	
 //	Movie delete(Movie movie);
 //	Movie findOne(Long id);
-//	String editMovie(Movie movie);
+//	
 
 }
