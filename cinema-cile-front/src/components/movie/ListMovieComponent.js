@@ -6,6 +6,8 @@ import './ListMovieComponent.css';
 import './CreateMovieModalComponent.css';
 import EditMovieModalComponent from './EditMovieModalComponent';
 import { Link } from 'react-router-dom';
+import AlertService from '../../alert/AlertService';
+import Swal from 'sweetalert2';
 
 const ListMovieComponent = () => {
 
@@ -114,6 +116,37 @@ const ListMovieComponent = () => {
             setMovies(response.data);
         });
     }
+
+    const alertAreYouSureDelete = (id) =>{
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "If you click yes, movie will be deleted!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            deleteMovie(id);
+            Swal.fire(
+              'Deleted!',
+              'Movie has been deleted.',
+              'success'
+            )
+          }
+        })
+      }
+
+      const deleteMovie = (id) =>{
+        MovieService.deleteMovie(id).then((response) =>{
+            let responseFromServer = response.data.toString();
+            if(responseFromServer == "success"){
+                alert("Uspesno obrisan film");
+                getAllMovies();
+            }
+        })
+      }
     
 
 // className='container', vec po defaultu ima margine auto i width nije 100% kao sto bi trebalo
@@ -150,7 +183,7 @@ const ListMovieComponent = () => {
                             <div className='movie-action-container'>
                                 <label className='actionLabel'>Action</label>
                                 <div className='action-fa-container'>
-                                    <i id="fa-trash" class="fa fa-trash" aria-hidden="true"></i>
+                                    <i id="fa-trash" class="fa fa-trash" onClick={() => alertAreYouSureDelete(movie.id)} aria-hidden="true"></i>
                                     <i id="fa-pencil" class="fa fa-pencil" onClick={() => handleShowEditMovieModal(movie)} aria-hidden="true"></i>
                                 </div>
                             </div>

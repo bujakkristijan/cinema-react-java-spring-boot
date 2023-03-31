@@ -25,17 +25,13 @@ public class MovieServiceImpl implements MovieService{
 	@Override
 	public List<MovieDTO> findAll() {
 		List<Movie> allMovieList = movieRepository.findAll();
-		
 		List<MovieDTO> allMovieDTOList = new ArrayList<MovieDTO>();
 		MovieDTO movieDTO = new MovieDTO();
-
+		
 		for (Movie movie : allMovieList) {
 			//MealDTO mealDTO = MealMapper.INSTANCE.entityToDTO(meal);
 			movieDTO = new MovieDTO(movie);
-			
 				allMovieDTOList.add(movieDTO);
-		
-			
 		}
 		return allMovieDTOList;
 	}
@@ -72,5 +68,19 @@ public class MovieServiceImpl implements MovieService{
 		
 		movieRepository.save(m);
 		return "success";
+	}
+	
+	@Override
+	public Movie delete(Movie movie) {
+		if (movie == null)
+			throw new IllegalArgumentException("Attempt to delete non-existing movie.");
+		movieRepository.delete(movie);
+		return movie;
+	}
+	
+	@Override
+	public Movie findOne(Long id) {
+		Movie movie = movieRepository.findById(id).get();
+		return movie;
 	}
 }

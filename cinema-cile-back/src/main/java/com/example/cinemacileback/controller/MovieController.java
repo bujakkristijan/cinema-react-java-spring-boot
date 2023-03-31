@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -71,5 +72,19 @@ public class MovieController {
 			List<MovieDTO> moviesDTO = movieService.findAll();
 			return new ResponseEntity<List<MovieDTO>>(moviesDTO, HttpStatus.OK);
 		}
+	
+	@RequestMapping(value = "/deleteMovie/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<String> delete(@PathVariable Long id) {
+		String responseToClient;
+		Movie movie = movieService.findOne(id);
+		if (movie == null) {
+			responseToClient = "fail";
+			return new ResponseEntity<String>(responseToClient, HttpStatus.OK);
+		}
+		movieService.delete(movie);
+		responseToClient = "success";
+		return new ResponseEntity<String>(responseToClient, HttpStatus.OK);
+	}
+
 
 }
