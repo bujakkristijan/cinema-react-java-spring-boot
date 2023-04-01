@@ -46,7 +46,7 @@ const NavbarComponent = () => {
             <li className='nav-list-item' id='li-loginBtn'>
                 {/* morao sam u div dodatni da stavim sve da bi lepo pozicionirao preko display flex!!!! */}
                 <div className='signInContainer'>
-                    <i id="faLogin" class="fa fa-sign-in" aria-hidden="true"></i>
+                    <i id="faLoginBtn" class="fa fa-sign-in" aria-hidden="true"></i>
                     <Link to='/login' className='login-btn'>Sign in</Link>
                 </div>  
             </li>

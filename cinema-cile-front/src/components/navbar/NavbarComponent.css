@@ -20,6 +20,11 @@
     text-decoration: none;
 }
 
+#faLoginBtn{
+    font-size: x-large;
+    color:#9d9b42;
+}
+
 
 .signInContainer{
     display: flex;
@@ -130,13 +135,17 @@
         cursor: pointer;
 
     }
-    #li-loginBtn{
+     #li-loginBtn{
         margin-top: 15px !important;
         
+    } 
+    #faLoginBtn{
+        font-size: larger;
     }
     .login-btn{
-        border: 1px solid rgb(199, 199, 0) !important;
+        font-size: small;
     }
+   
     .nav-ul{
         padding: 30px;
     }
