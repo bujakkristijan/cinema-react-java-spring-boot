@@ -10,7 +10,8 @@
     padding-right: 5% !important;
 }
 
-.login-btn{
+#li-loginBtn{
+    /* display: flex; /* zasto kad je display: flex stavi u nov red i poremeti sve, umesto da deluje samo na child elemente, proveriti !!! */
     color: white;
     padding: 15px 30px;
     border: 2px solid rgb(199, 199, 0);
@@ -19,7 +20,29 @@
     text-decoration: none;
 }
 
+
+.signInContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.login-btn{
+    padding-left: 10px;
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+    /* margin-left: 10px; */
+}
+
+/* treba uraditi i kada bude hover preko li-loginBtn, da se automatski color promeni u crno na login-btn*/
 .login-btn:hover{
+    color: black;
+    transition: 1s;
+}
+
+
+#li-loginBtn:hover{
     color: black;
     background-color: white;
     border: 2px solid white;

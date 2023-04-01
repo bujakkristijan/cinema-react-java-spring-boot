@@ -13,6 +13,7 @@ function App() {
       <NavbarComponent/>
       <div className="router-components">
       <Routes>
+        <Route path="/" element={<LoginComponent/>}></Route>
         <Route path="/login" element={<LoginComponent/>}></Route>
         <Route path="/registration" element={<RegistrationComponent/>}></Route>
         <Route path="/users" element={<ListUserComponent/>}></Route>

@@ -44,10 +44,12 @@ const NavbarComponent = () => {
                 <Link to='/users' className='nav-link'>Users</Link>
             </li>
             <li className='nav-list-item' id='li-loginBtn'>
-                <Link to='/login' className='login-btn'>Login</Link>
+                {/* morao sam u div dodatni da stavim sve da bi lepo pozicionirao preko display flex!!!! */}
+                <div className='signInContainer'>
+                    <i id="faLogin" class="fa fa-sign-in" aria-hidden="true"></i>
+                    <Link to='/login' className='login-btn'>Sign in</Link>
+                </div>  
             </li>
-            
-            
         </ul>
     </div>
     <i id="menu" className="fa fa-bars" onClick={showMenu}></i>
