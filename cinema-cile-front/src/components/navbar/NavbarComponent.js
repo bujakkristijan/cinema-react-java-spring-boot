@@ -1,8 +1,22 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, {useState, useEffect} from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 import './NavbarComponent.css'
 
 const NavbarComponent = () => {
+    console.log("WTF")
+
+    // kada se stisne na bilo koji link (ne mora da se poziva komponenta) renderuje se ponovo NavbarComponent
+    // jedino ovako nakon uspesnog logina se uspesno sakrivaju i pokazuju odgovarajuci linkovi u navbaru na osnovu role 
+    // iz localStorage.role
+    // proveriti zasto ovo mora, iako se nigde ne koristi, odnosno zasto uopste se renderuje svaki put kada se bilo koji link
+    // stisne, nije mi jasno zasto ovako radi !!! verovatno postoji i drugi nacin
+    const navigate = useNavigate();
+
+    // useEffect(() => {
+    //     setUserRole(localStorage.role);
+    //     console.log("localstorage role " + localStorage.role)
+    //     console.log("userRole" + userRole)
+    //   }, [localStorage.role]);
 
     const hideMenu = () =>{
         const navLinks = document.getElementById("navLinks");
@@ -25,28 +39,28 @@ const NavbarComponent = () => {
     <div className='nav-links' id='navLinks'>
         <i id="x-menu"className="fa fa-times" onClick={hideMenu}></i>
         <ul className='nav-ul'>
-            <li className='nav-list-item'>
+            {localStorage.role === "USER" && <li className='nav-list-item'>
                 <Link className='nav-link'>My reservations</Link>
-            </li>
-            <li className='nav-list-item'>
+            </li>}
+            {localStorage.role === "ADMIN" && <li className='nav-list-item'>
                 <Link to='/movies' className='nav-link'>Movies</Link>
-            </li>
+            </li>}
             <li className='nav-list-item'>
                 <Link className='nav-link'>Projections</Link>
             </li>
-            <li className='nav-list-item'>
+            {localStorage.role === "ADMIN" && <li className='nav-list-item'>
                 <Link className='nav-link'>Halls</Link>
-            </li>
-            <li className='nav-list-item'>
+            </li>}
+            {localStorage.role === "USER" && <li className='nav-list-item'>
                 <Link className='nav-link'>My profile</Link>
-            </li>
-            <li className='nav-list-item'>
+            </li>}
+            {localStorage.role === "ADMIN" && <li className='nav-list-item'>
                 <Link to='/users' className='nav-link'>Users</Link>
-            </li>
+            </li>}
             <li className='nav-list-item' id='li-loginBtn'>
                 {/* morao sam u div dodatni da stavim sve da bi lepo pozicionirao preko display flex!!!! */}
                 <div className='signInContainer'>
-                    <i id="faLoginBtn" class="fa fa-sign-in" aria-hidden="true"></i>
+                    <i id="faLoginBtn" className="fa fa-sign-in" aria-hidden="true"></i>
                     <Link to='/login' className='login-btn'>Sign in</Link>
                 </div>  
             </li>

@@ -27,6 +27,7 @@ const LoginComponent = () => {
         jwtInterceptor();
         alert("Successful login! Token: " + localStorage.token);
         localStorage.role = decodeTokenAndReturnRole(response.data.token);
+        console.log("ROLE LOCALSTORAGE" + localStorage.role);
         navigateDependingOnRole(localStorage.role);
         
       }
@@ -40,6 +41,9 @@ const LoginComponent = () => {
   const navigateDependingOnRole = (role) =>{
     if(role === "ADMIN"){
       navigate("/users");
+    }
+    if(role === "USER"){
+      navigate("/projections");
     }
     
   }
@@ -57,7 +61,7 @@ const LoginComponent = () => {
   return (
     <div className="login-box">
       <div className='login-label-container'>
-        <i id="faLogin" class="fa fa-sign-in" aria-hidden="true"></i>
+        <i id="faLogin" className="fa fa-sign-in" aria-hidden="true"></i>
         <label className='loginLabel'>Sign in</label>
       </div>
       <form className='login-form'>
