@@ -8,7 +8,6 @@ import { jwtInterceptor } from '../interceptor/interceptor';
 
 const LoginComponent = () => {
 
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 

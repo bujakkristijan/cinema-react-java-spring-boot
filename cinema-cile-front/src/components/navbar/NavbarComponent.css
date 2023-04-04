@@ -40,6 +40,21 @@
     /* margin-left: 10px; */
 }
 
+.logout-btn{
+    padding-left: 10px;
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+    /* margin-left: 10px; */
+    border: none;
+    background: transparent;
+}
+
+.logout-btn:hover{
+    color: black;
+    transition: 0.5s;
+}
+
 /* treba uraditi i kada bude hover preko li-loginBtn, da se automatski color promeni u crno na login-btn*/
 .login-btn:hover{
     color: black;

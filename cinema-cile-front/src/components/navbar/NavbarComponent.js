@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import './NavbarComponent.css'
+import LoginService from '../../services/LoginService';
 
 const NavbarComponent = () => {
     console.log("WTF")
@@ -28,6 +29,24 @@ const NavbarComponent = () => {
         const navLinks = document.getElementById("navLinks");
         navLinks.style.right = "0"; // po defaultu u css-u za male ekrane je stavljeno da je -200, ukoliko stisne dugme, postaje right: 0, pa se pojavi  meni
         navLinks.style.boxShadow = "0 0 0 10000px rgba(0,0,0,.50)"; /* da zatamni pozadinu */
+    }
+
+    const logout = () =>{
+        LoginService.logout().then((response) =>{
+            let responseFromServer = response.data;
+            if(responseFromServer === "valid"){
+                clearLocalStorage();
+                alert("Succesfully signed out! ");
+                navigate("/login");
+            }
+            else if(responseFromServer === "invalid"){
+                alert("Something went wrong!");
+            }      
+        })
+    }
+
+    const clearLocalStorage = () =>{
+        localStorage.clear();
     }
 
   return (
@@ -59,10 +78,14 @@ const NavbarComponent = () => {
             </li>}
             <li className='nav-list-item' id='li-loginBtn'>
                 {/* morao sam u div dodatni da stavim sve da bi lepo pozicionirao preko display flex!!!! */}
-                <div className='signInContainer'>
+                {localStorage.token == null && <div className='signInContainer'>
                     <i id="faLoginBtn" className="fa fa-sign-in" aria-hidden="true"></i>
                     <Link to='/login' className='login-btn'>Sign in</Link>
-                </div>  
+                </div> }
+                {localStorage.token != null  && <div className='signInContainer'>
+                    <i id="faLoginBtn" className="fa fa-sign-out" aria-hidden="true"></i>
+                    <button className='logout-btn' onClick={() => logout()}>Sign out</button>
+                </div> }
             </li>
         </ul>
     </div>
