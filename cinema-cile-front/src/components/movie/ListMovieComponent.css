@@ -114,7 +114,7 @@ label{
 
 .action-fa-container{
     position: relative;
-    top: 25%;
+    top: 25%; /* nzm zasto za 25 bude u sredini, ako je 100 npr skroz ga pozicionira van movie-action-container-a*/
     width: 100%;
     text-align: center;
 }
