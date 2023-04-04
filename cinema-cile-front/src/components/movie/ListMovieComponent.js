@@ -28,7 +28,7 @@ const ListMovieComponent = () => {
 
     const movie = {id, name, description, director, genre, actors, distributor, year, duration, setDescription, setName, setGenre, setDirector, setActors, setDistributor, setYear, setDuration }
     const file = {selectedFile, setSelectedFile};
-    const genres = ["Sci-fi", "Action", "Thriller", "Drama", "Mystery", "Comedy"];
+    const genres = ["Sci-fi", "Action", "Thriller", "Drama", "Mystery", "Comedy" , "Horror"];
 
     useEffect(() => {
       getAllMovies();
@@ -107,6 +107,7 @@ const ListMovieComponent = () => {
             if(responseFromServer == "valid"){
                 alert("Uspesno dodat");
                 handleCloseCreateMovieModal();
+                getAllMovies();
             }
         })
     }

@@ -10,16 +10,16 @@ function App() {
     <Router>
       {/* <NavbarComponent/> */}
       <div className='main-container'>
-      <NavbarComponent/>
-      <div className="router-components">
-      <Routes>
-        <Route path="/" element={<LoginComponent/>}></Route>
-        <Route path="/login" element={<LoginComponent/>}></Route>
-        <Route path="/registration" element={<RegistrationComponent/>}></Route>
-        <Route path="/users" element={<ListUserComponent/>}></Route>
-        <Route path="/movies" element={<ListMovieComponent/>}></Route>
-      </Routes>
-      </div>
+        <NavbarComponent/>
+        <div className="router-components">
+        <Routes>
+          <Route path="/" element={<LoginComponent/>}></Route>
+          <Route path="/login" element={<LoginComponent/>}></Route>
+          <Route path="/registration" element={<RegistrationComponent/>}></Route>
+          <Route path="/users" element={<ListUserComponent/>}></Route>
+          <Route path="/movies" element={<ListMovieComponent/>}></Route>
+        </Routes>
+        </div>
       </div>
     </Router>
   );

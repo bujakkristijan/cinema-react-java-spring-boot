@@ -96,10 +96,6 @@ label{
 }
 
 
-
-
-
-
 .h1-movies{
     text-align: center;
     margin-top: 5px;
@@ -107,7 +103,7 @@ label{
 
 .movie-action-container{
     width: 20%;
-    position: relative;
+    /* position: relative; */  
     text-align: center;
     
 }
@@ -117,8 +113,8 @@ label{
 }
 
 .action-fa-container{
-    position: absolute;
-    top: 50%;
+    position: relative;
+    top: 25%;
     width: 100%;
     text-align: center;
 }

@@ -4,6 +4,7 @@ import LoginService from '../../services/LoginService';
 import { Link, useNavigate } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 import { jwtInterceptor } from '../interceptor/interceptor';
+import AlertService from '../../alert/AlertService';
 
 
 const LoginComponent = () => {
@@ -19,15 +20,18 @@ const LoginComponent = () => {
 
     const loginParams = {username, password};
     LoginService.login(loginParams).then((response) =>{
-      alert("Login params" + loginParams.username + " " + loginParams.password); 
       let responseFromServer = response.data.messageInvalidUsernameOrPassword.toString();
       if(responseFromServer == "no"){
         localStorage.token = response.data.token;
-        jwtInterceptor();
-        alert("Successful login! Token: " + localStorage.token);
+        // jwtInterceptor();
+        AlertService.alertSuccessSignIn();
+        // alert("Successful login! Token: " + localStorage.token);
         localStorage.role = decodeTokenAndReturnRole(response.data.token);
-        console.log("ROLE LOCALSTORAGE" + localStorage.role);
-        navigateDependingOnRole(localStorage.role);
+        // console.log("ROLE LOCALSTORAGE" + localStorage.role);
+        setTimeout(() => {
+          navigateDependingOnRole(localStorage.role); //nakon sto se zavrsi alert posle 1500ms, poziva se funkcija
+        }, 1500);
+        
         
       }
       else if(responseFromServer == "yes"){

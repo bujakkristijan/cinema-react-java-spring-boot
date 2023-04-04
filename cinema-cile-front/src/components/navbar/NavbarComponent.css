@@ -1,4 +1,6 @@
 .navbar{
+    position: sticky !important; /* kad je fixed poremeti se skroz, nzm sto */
+    top: 0; 
     display: flex;
     padding: 2% 6%;
     /* margin: 2% 6%; */
@@ -8,6 +10,7 @@
     background-color: #383838; 
     padding-left: 5% !important;
     padding-right: 5% !important;
+    
 }
 
 #li-loginBtn{
@@ -76,6 +79,8 @@
 .nav-bottom-line{
     height: 1px;
     background-color: rgb(199, 199, 0);
+    /* position: sticky !important;
+    top: 100px; */
 }
 
 .img-logo{
@@ -158,6 +163,10 @@
         font-size: larger;
     }
     .login-btn{
+        font-size: small;
+    }
+    .logout-btn{
+        width: 100%;
         font-size: small;
     }
    

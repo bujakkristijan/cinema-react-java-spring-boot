@@ -33,5 +33,6 @@
     }
     .box-1{
         width: 100%; /* da zauzme 100% jer ostane na 55% */ 
+        margin-right: 0;
     }
 }

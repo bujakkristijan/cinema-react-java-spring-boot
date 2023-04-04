@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import './NavbarComponent.css'
 import LoginService from '../../services/LoginService';
+import AlertService from '../../alert/AlertService';
 
 const NavbarComponent = () => {
     console.log("WTF")
@@ -36,8 +37,10 @@ const NavbarComponent = () => {
             let responseFromServer = response.data;
             if(responseFromServer === "valid"){
                 clearLocalStorage();
-                alert("Succesfully signed out! ");
-                navigate("/login");
+                AlertService.alertSuccessSignOut();
+                setTimeout(()=>{
+                    navigate("/login");
+                }, 1500)
             }
             else if(responseFromServer === "invalid"){
                 alert("Something went wrong!");
@@ -58,9 +61,6 @@ const NavbarComponent = () => {
     <div className='nav-links' id='navLinks'>
         <i id="x-menu"className="fa fa-times" onClick={hideMenu}></i>
         <ul className='nav-ul'>
-            {localStorage.role === "USER" && <li className='nav-list-item'>
-                <Link className='nav-link'>My reservations</Link>
-            </li>}
             {localStorage.role === "ADMIN" && <li className='nav-list-item'>
                 <Link to='/movies' className='nav-link'>Movies</Link>
             </li>}
@@ -75,6 +75,12 @@ const NavbarComponent = () => {
             </li>}
             {localStorage.role === "ADMIN" && <li className='nav-list-item'>
                 <Link to='/users' className='nav-link'>Users</Link>
+            </li>}
+            {localStorage.role === "ADMIN" && <li className='nav-list-item'>
+                <Link to='/reservedtickets' className='nav-link'>Reserved tickets</Link>
+            </li>}
+            {localStorage.role === "USER" && <li className='nav-list-item'>
+                <Link to='/myreservedtickets' className='nav-link'>My reserved tickets</Link>
             </li>}
             <li className='nav-list-item' id='li-loginBtn'>
                 {/* morao sam u div dodatni da stavim sve da bi lepo pozicionirao preko display flex!!!! */}
