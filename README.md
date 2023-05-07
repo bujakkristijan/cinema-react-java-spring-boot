@@ -1,3 +1,4 @@
+### Responsive cinema application
 Project is implemented using ReactJS (Hooks) and Java Spring Boot framework (Hibernate, Spring Secuirty with JSON Web token, REST API) with some additional libraries (Bootstrap, AXIOS, Sweetalert and few more).
 
 ### Specification:
