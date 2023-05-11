@@ -1,6 +1,5 @@
 .movie-form{
     padding: 0 !important;
-    
     display: flex !important;
     margin-top: 0 !important; /* margin-top je 30 bilo po defaultu */
     flex-direction: row !important;
